@@ -9,9 +9,9 @@ const clientService = new ClientService( clientRepository );
 const clientController = new ClientController( clientService );
 
 // Rutas para manejar clientes
-router.post('/clients', clientController.create.bind(clientController));        
-router.get('/clients/:id', clientController.findById.bind(clientController));   
-router.put('/clients/:id', clientController.update.bind(clientController));     
-router.delete('/clients/:id', clientController.delete.bind(clientController)); 
+router.post('/clients', (req, res) => clientController.create(req, res));        
+router.get('/clients/:id', (req, res) => clientController.findById(req, res));   
+router.put('/clients/:id', (req, res) => clientController.update(req, res));     
+router.delete('/clients/:id', (req, res) => clientController.delete(req, res)); 
 
 export default router;
